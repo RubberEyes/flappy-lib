@@ -15,13 +15,14 @@ use bevy::{
     sprite::{BorderRect, SliceScaleMode, Sprite, SpriteImageMode, TextureSlicer},
     transform::components::Transform,
 };
+use derive_getters::Dissolve;
 
 use crate::{
     components::{Pipe, PipeBottom, PipeGate, PipeTop},
     config::{GAP_SIZE, PIPE_GAP_OFFSET, PIPE_SIZE},
 };
 
-#[derive(Bundle)]
+#[derive(Bundle, Dissolve)]
 #[bundle(ignore_from_components)]
 pub struct PipeBundle {
     pub pipe: Pipe,
@@ -66,7 +67,7 @@ impl PipeBundle {
     pub fn new(asset_server: Res<AssetServer>, position: f32) -> Self {
         Self {
             pipe: Pipe,
-            name: Name::new("king"),
+            name: Name::new("King"),
             visibility: Visibility::Visible,
             transform: Transform::from_xyz(0f32, position, 0f32),
             children: children![

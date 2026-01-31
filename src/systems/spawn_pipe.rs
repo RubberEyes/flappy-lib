@@ -7,5 +7,5 @@ use crate::bundles::PipeBundle;
 
 pub fn spawn_pipe(mut commands: Commands, asset_server: Res<AssetServer>) {
     let gap_y_position = 0f32;
-    commands.spawn(PipeBundle::new(asset_server, gap_y_position));
+    commands.spawn(PipeBundle::new(asset_server, gap_y_position).dissolve());
 }

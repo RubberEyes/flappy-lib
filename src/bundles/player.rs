@@ -1,6 +1,6 @@
 use bevy::{
     asset::AssetServer,
-    ecs::{bundle::Bundle, system::Res},
+    ecs::{bundle::Bundle, name::Name, system::Res},
     sprite::Sprite,
     transform::components::Transform,
 };
@@ -12,6 +12,7 @@ use crate::{
 
 #[derive(Bundle)]
 pub struct PlayerBundle {
+    pub name: Name,
     pub sprite: Sprite,
     pub transform: Transform,
     pub player: Player,
@@ -22,6 +23,7 @@ pub struct PlayerBundle {
 impl PlayerBundle {
     pub fn new(asset_server: Res<AssetServer>) -> Self {
         Self {
+            name: Name::new("Flappy Player"),
             sprite: Sprite {
                 image: asset_server.load("bevy-bird.png"),
                 custom_size: Some(bevy::math::Vec2::splat(PLAYER_SIZE)),
