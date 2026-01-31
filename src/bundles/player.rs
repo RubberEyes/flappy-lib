@@ -5,7 +5,10 @@ use bevy::{
     transform::components::Transform,
 };
 
-use crate::components::{Gravity, Player, Velocity};
+use crate::{
+    components::{Gravity, Player, Velocity},
+    config::{PLAYER_SIZE, SPAWN_TRANSFORM},
+};
 
 #[derive(Bundle)]
 pub struct PlayerBundle {
@@ -21,10 +24,10 @@ impl PlayerBundle {
         Self {
             sprite: Sprite {
                 image: asset_server.load("bevy-bird.png"),
-                custom_size: Some(bevy::math::Vec2::splat(25f32)),
+                custom_size: Some(bevy::math::Vec2::splat(PLAYER_SIZE)),
                 ..Default::default()
             },
-            transform: Transform::from_xyz(0f32, 0f32, 1f32),
+            transform: SPAWN_TRANSFORM,
             player: Player,
             gravity: Gravity(1000f32),
             velocity: Velocity(600f32),

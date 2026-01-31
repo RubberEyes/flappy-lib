@@ -6,3 +6,6 @@ pub use gravity::*;
 
 mod velocity;
 pub use velocity::*;
+
+mod pipe;
+pub use pipe::*;

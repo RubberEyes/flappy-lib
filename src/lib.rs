@@ -1,4 +1,7 @@
 mod bundles;
 mod components;
-pub mod plugins;
+mod config;
+mod events;
 mod systems;
+
+pub mod plugins;
