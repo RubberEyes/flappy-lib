@@ -1,5 +1,6 @@
 use bevy::{
     asset::AssetServer,
+    color::palettes::tailwind::GRAY_700,
     ecs::{bundle::Bundle, name::Name, system::Res},
     sprite::Sprite,
     transform::components::Transform,
@@ -27,6 +28,7 @@ impl PlayerBundle {
             sprite: Sprite {
                 image: asset_server.load("bevy-bird.png"),
                 custom_size: Some(bevy::math::Vec2::splat(PLAYER_SIZE)),
+                color: GRAY_700.into(),
                 ..Default::default()
             },
             transform: SPAWN_TRANSFORM,

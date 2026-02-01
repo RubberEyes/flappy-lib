@@ -9,3 +9,6 @@ pub use pipe::*;
 
 mod score;
 pub use score::*;
+
+mod background;
+pub use background::*;

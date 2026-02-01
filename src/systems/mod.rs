@@ -33,3 +33,6 @@ pub use spawn_score_ui::*;
 
 mod score;
 pub use score::*;
+
+mod background;
+pub use background::*;

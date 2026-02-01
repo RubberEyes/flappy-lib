@@ -1,3 +1,4 @@
+mod assets;
 mod bundles;
 mod components;
 mod config;

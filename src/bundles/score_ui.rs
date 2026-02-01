@@ -1,4 +1,4 @@
-use bevy::color::palettes::tailwind::SLATE_50;
+use bevy::color::palettes::tailwind::GRAY_700;
 use bevy::ecs::bundle::Bundle;
 use bevy::prelude::{Node, Text, TextColor, TextFont, TextLayout};
 use bevy::ui::{percent, px};
@@ -26,7 +26,7 @@ impl ScoreUi {
             text: Text::new("0"),
             text_layout: TextLayout::new_with_justify(bevy::text::Justify::Center),
             text_font: TextFont::from_font_size(33f32),
-            text_color: TextColor(SLATE_50.into()),
+            text_color: TextColor(GRAY_700.into()),
             score_text: ScoreText,
         }
     }
