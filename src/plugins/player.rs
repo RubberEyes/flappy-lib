@@ -1,6 +1,4 @@
-use crate::systems::{
-    check_collisions, check_in_bounds, controls, gravity_system, respawn_on_endgame, spawn_player,
-};
+use crate::systems::{check_in_bounds, controls, gravity_system, respawn_on_endgame, spawn_player};
 use bevy::{
     app::{App, FixedUpdate, Plugin, Startup, Update},
     ecs::schedule::IntoScheduleConfigs,
@@ -18,11 +16,9 @@ pub struct PlayerPlugin;
 impl Plugin for PlayerPlugin {
     fn build(&self, app: &mut App) {
         app.add_systems(Startup, spawn_player);
-        app.add_systems(
-            FixedUpdate,
-            (gravity_system, check_in_bounds, check_collisions).chain(),
-        );
+        app.add_systems(FixedUpdate, (gravity_system, check_in_bounds).chain());
         app.add_systems(Update, controls);
+
         app.add_observer(respawn_on_endgame);
 
         #[cfg(feature = "debug")]

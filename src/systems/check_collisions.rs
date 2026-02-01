@@ -5,7 +5,6 @@ use bevy::{
         query::{Or, With},
         system::{Commands, Query, Single},
     },
-    log::info,
     math::{
         Vec3Swizzles,
         bounding::{Aabb2d, BoundingCircle, IntersectsVolume},
@@ -17,7 +16,7 @@ use bevy::{
 use crate::{
     components::{PipeBottom, PipeGate, PipeTop, Player},
     config::PLAYER_SIZE,
-    events::EndGame,
+    events::{EndGame, ScorePoint},
 };
 
 #[cfg(feature = "debug")]
@@ -72,9 +71,8 @@ pub fn check_collisions(
             RED_400,
         );
         if player_collider.intersects(&gap_collider) {
-            info!("Point scored!");
+            commands.trigger(ScorePoint);
             commands.entity(entity).despawn();
-            // commands.trigger(ScorePoint);
         }
     }
 

@@ -7,7 +7,7 @@ use bevy::{
     time::common_conditions::on_timer,
 };
 
-use crate::systems::{despawn_pipe, move_pipe, spawn_pipe};
+use crate::systems::{check_collisions, check_in_bounds, despawn_pipe, move_pipe, spawn_pipe};
 
 impl Plugin for PipePlugin {
     fn build(&self, app: &mut App) {
@@ -17,6 +17,7 @@ impl Plugin for PipePlugin {
                 move_pipe,
                 despawn_pipe,
                 spawn_pipe.run_if(on_timer(Duration::from_secs(1))),
+                check_collisions.after(check_in_bounds),
             ),
         );
     }

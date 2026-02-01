@@ -6,3 +6,6 @@ pub use camera::*;
 
 mod pipe;
 pub use pipe::*;
+
+mod score;
+pub use score::*;

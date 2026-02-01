@@ -13,9 +13,6 @@ pub use controls::*;
 mod bounds;
 pub use bounds::*;
 
-mod respawn;
-pub use respawn::*;
-
 mod move_pipe;
 pub use move_pipe::*;
 
@@ -27,3 +24,12 @@ pub use despawn_pipe::*;
 
 mod check_collisions;
 pub use check_collisions::*;
+
+mod observers;
+pub use observers::*;
+
+mod spawn_score_ui;
+pub use spawn_score_ui::*;
+
+mod score;
+pub use score::*;
