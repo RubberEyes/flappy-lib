@@ -36,3 +36,7 @@ pub use score::*;
 
 mod background;
 pub use background::*;
+
+mod player_direction;
+pub use player_direction::*;
+
