@@ -6,11 +6,14 @@ use bevy::{
     ecs::schedule::IntoScheduleConfigs,
     time::common_conditions::on_timer,
 };
+use bevy_prng::ChaCha8Rng;
+use bevy_rand::plugin::EntropyPlugin;
 
 use crate::systems::{check_collisions, check_in_bounds, despawn_pipe, move_pipe, spawn_pipe};
 
 impl Plugin for PipePlugin {
     fn build(&self, app: &mut App) {
+        app.add_plugins(EntropyPlugin::<ChaCha8Rng>::default());
         app.add_systems(
             FixedUpdate,
             (
