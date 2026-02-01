@@ -24,3 +24,6 @@ pub use spawn_pipe::*;
 
 mod despawn_pipe;
 pub use despawn_pipe::*;
+
+mod check_collisions;
+pub use check_collisions::*;
