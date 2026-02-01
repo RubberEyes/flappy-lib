@@ -1,11 +1,23 @@
 pub struct PipePlugin;
-use bevy::app::{App, FixedUpdate, Plugin, Startup};
+use std::time::Duration;
 
-use crate::systems::{move_pipe, spawn_pipe};
+use bevy::{
+    app::{App, FixedUpdate, Plugin},
+    ecs::schedule::IntoScheduleConfigs,
+    time::common_conditions::on_timer,
+};
+
+use crate::systems::{despawn_pipe, move_pipe, spawn_pipe};
 
 impl Plugin for PipePlugin {
     fn build(&self, app: &mut App) {
-        app.add_systems(Startup, spawn_pipe);
-        app.add_systems(FixedUpdate, move_pipe);
+        app.add_systems(
+            FixedUpdate,
+            (
+                move_pipe,
+                despawn_pipe,
+                spawn_pipe.run_if(on_timer(Duration::from_secs(1))),
+            ),
+        );
     }
 }

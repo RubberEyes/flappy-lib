@@ -6,7 +6,6 @@ use bevy::{
         bundle::Bundle,
         children,
         hierarchy::ChildOf,
-        name::Name,
         spawn::{Spawn, SpawnRelatedBundle},
         system::Res,
     },
@@ -19,14 +18,13 @@ use derive_getters::Dissolve;
 
 use crate::{
     components::{Pipe, PipeBottom, PipeGate, PipeTop},
-    config::{GAP_SIZE, PIPE_GAP_OFFSET, PIPE_SIZE},
+    config::{CANVAS_SIZE, GAP_SIZE, PIPE_GAP_OFFSET, PIPE_SIZE},
 };
 
 #[derive(Bundle, Dissolve)]
 #[bundle(ignore_from_components)]
 pub struct PipeBundle {
     pub pipe: Pipe,
-    pub name: Name,
     pub visibility: Visibility,
     pub transform: Transform,
     pub children: SpawnRelatedBundle<
@@ -67,9 +65,8 @@ impl PipeBundle {
     pub fn new(asset_server: Res<AssetServer>, position: f32) -> Self {
         Self {
             pipe: Pipe,
-            name: Name::new("King"),
             visibility: Visibility::Visible,
-            transform: Transform::from_xyz(0f32, position, 0f32),
+            transform: Transform::from_xyz((PIPE_SIZE.x + CANVAS_SIZE.x) / 2f32, position, 0f32),
             children: children![
                 PipeTopBundle {
                     pipe_top: PipeTop,

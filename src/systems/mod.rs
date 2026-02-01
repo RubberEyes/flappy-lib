@@ -21,3 +21,6 @@ pub use move_pipe::*;
 
 mod spawn_pipe;
 pub use spawn_pipe::*;
+
+mod despawn_pipe;
+pub use despawn_pipe::*;

@@ -18,3 +18,4 @@ pub const SPAWN_TRANSFORM: Transform = Transform {
 pub const GAP_SIZE: f32 = 100f32;
 pub const PIPE_SIZE: Vec2 = Vec2::new(32f32, CANVAS_SIZE.y);
 pub const PIPE_GAP_OFFSET: f32 = PIPE_SIZE.y / 2f32 + GAP_SIZE / 2f32;
+pub const PIPE_SPEED: f32 = 300f32;
