@@ -1,9 +1,6 @@
-use bevy::{
-    app::{PluginGroup, PluginGroupBuilder},
-    camera::CameraPlugin,
-};
+use bevy::app::{PluginGroup, PluginGroupBuilder};
 
-use crate::plugins::{BackgroundPlugin, PipePlugin, PlayerPlugin, ScorePlugin};
+use crate::plugins::{BackgroundPlugin, CameraPlugin, PipePlugin, PlayerPlugin, ScorePlugin};
 
 pub struct FlappyPluginGroup;
 

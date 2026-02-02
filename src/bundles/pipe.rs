@@ -86,9 +86,9 @@ impl PipeBundle {
                 PipeGateBundle {
                     pipe_gate: PipeGate,
                     #[cfg(feature = "debug")]
-                    visibility: Visibility::Hidden,
-                    #[cfg(not(feature = "debug"))]
                     visibility: Visibility::Inherited,
+                    #[cfg(not(feature = "debug"))]
+                    visibility: Visibility::Hidden,
                     transform: Transform::from_xyz(0f32, position, 0f32),
                     sprite: Sprite {
                         color: Color::WHITE,
